@@ -1,13 +1,13 @@
-import {Link} from "react-router-dom";
 import Header from "../components/Header";
-import {useEffect, useState} from "react";
-import {useAuth} from "../security/AuthProvider";
+import {useState} from "react";
 import ErrorMessage from "../components/errorMessage";
 import Button from "../components/Button";
 import Footer from "../components/Footer";
 import {API_ROUTE} from "../config";
+import {useNavigate} from "react-router-dom";
 
 const Televersement = () => {
+    const navigate = useNavigate();
     const [errors, setErrors] = useState([]);
     const [token, setToken] = useState(localStorage.getItem('token'));
     const [files, setFiles] = useState([]);
@@ -29,16 +29,21 @@ const Televersement = () => {
                 })
                     .then(response => response.json())
                     .then(data => {
-                        if (data.error) {
+                        if (data.error || data.statusCode === 400) {
                             console.log(data.message)
                             setErrors(data)
                         }
+                        else{
+
+                        }
+
+
                     })
                     .catch(error => {
                         // Gérez les erreurs
                         console.log(error);
                     });
-                // setFiles(null)
+                setFiles(null);
             }
             sendFiles();
 
@@ -60,7 +65,7 @@ const Televersement = () => {
             <main className="flex-grow">
                 <h3 className={"font-bold text-center text-5xl my-9"}>Téleversement de vos fichiers </h3>
 
-                <div className={"w-9/12 h-auto m-auto justify-center content-center"}>
+                <div className={"w-9/12 h-auto m-auto justify-center content-center mb-3"}>
                     <label htmlFor="dropzone-file"
                            className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                         <div className="flex flex-col items-center justify-center pt-5 pb-6">
@@ -71,7 +76,7 @@ const Televersement = () => {
                                       d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
                             </svg>
                             <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span
-                                className="font-semibold">Click to upload</span> or drag and drop</p>
+                                className="font-semibold">Click to upload</span></p>
                             <p className="text-xs text-gray-500 dark:text-gray-400">JPEG or PDF (MAX.
                                 10 Mo)</p>
                         </div>

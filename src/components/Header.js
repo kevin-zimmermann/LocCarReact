@@ -2,7 +2,6 @@ import {Link} from "react-router-dom";
 import {Deconnexion} from "./deconnexion";
 import {faCar, faDownload, faHouse, faRightFromBracket, faUser} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faReact} from "@fortawesome/free-brands-svg-icons";
 import {useState} from "react";
 import {useAuth} from "../security/AuthProvider";
 

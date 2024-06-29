@@ -1,5 +1,5 @@
-import {useEffect, useState} from "react";
-import {Navigate, useNavigate} from "react-router-dom";
+import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 import InputField from "../components/InputField";
 import ErrorMessage from "../components/errorMessage";
 import Button from "../components/Button";
@@ -14,11 +14,7 @@ const Login = () => {
 
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
-    // const [email, setEmail] = useState('');
     const [errors, setErrors] = useState([]);
-    const [data, setData] = useState([]);
-
-
 
 
 
