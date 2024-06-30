@@ -34,7 +34,8 @@ const Televersement = () => {
                             setErrors(data)
                         }
                         else{
-
+                            setFiles(null);
+                            navigate('/profil')
                         }
 
 
@@ -43,7 +44,6 @@ const Televersement = () => {
                         // Gérez les erreurs
                         console.log(error);
                     });
-                setFiles(null);
             }
             sendFiles();
 
@@ -64,7 +64,6 @@ const Televersement = () => {
             <Header/>
             <main className="flex-grow">
                 <h3 className={"font-bold text-center text-5xl my-9"}>Téleversement de vos fichiers </h3>
-
                 <div className={"w-9/12 h-auto m-auto justify-center content-center mb-3"}>
                     <label htmlFor="dropzone-file"
                            className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">

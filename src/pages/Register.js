@@ -15,7 +15,6 @@ const Register = () => {
     const [errors, setErrors] = useState([]);
 
 
-
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
     };
@@ -31,7 +30,7 @@ const Register = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        console.log(password,email,confPassword)
+        console.log(password, email, confPassword)
         // const form = document.getElementById("form");
         // const formData = new FormData(form);
         const formData = {'email': email, 'password': password, 'confPassword': confPassword};
@@ -48,10 +47,10 @@ const Register = () => {
             })
             .then(data => {
                 // Traitez la réponse
-        console.log(data)
-                if(data.error){
+                console.log(data)
+                if (data.error) {
                     setErrors(data.message)
-                }else{
+                } else {
                     setEmail("")
                     setPassword("");
                     setconfPassword("");
@@ -68,46 +67,49 @@ const Register = () => {
 
     return (
 
-        <div>
+        <div className="min-h-screen flex flex-col">
+
             <Header/>
-            <h1 className={"font-bold text-center text-5xl mt-10"}>Inscription</h1>
-            <div className={"h-screen flex items-center justify-center"}>
-                <div className={"w-9/12 h-auto m-auto justify-center content-center"}>
-                    <form id="form" onSubmit={handleSubmit}>
-                        <InputField
-                            placeholder={"email@email.com"}
-                            className={"appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"}
-                            label="Email:"
-                            type="email"
-                            value={email}
-                            onChange={handleEmailChange}
-                        />
+            <main className="flex-grow">
+                <h1 className={"font-bold text-center text-5xl mt-10"}>Inscription</h1>
+                <div className={"h-screen flex items-center justify-center"}>
+                    <div className={"w-9/12 h-auto m-auto justify-center content-center"}>
+                        <form id="form" onSubmit={handleSubmit}>
+                            <InputField
+                                placeholder={"email@email.com"}
+                                className={"appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"}
+                                label="Email:"
+                                type="email"
+                                value={email}
+                                onChange={handleEmailChange}
+                            />
 
 
-                        <InputField
-                            placeholder={"Votre mot de passe"}
-                            className={"appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"}
-                            label="Password:"
-                            type="password"
-                            value={password}
-                            onChange={handlePasswordChange}
-                        />
-                        <InputField
-                            placeholder={"Confirmer votre MDP"}
-                            className={"appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"}
-                            label=" Confirmer MDP:"
-                            type="password"
-                            value={confPassword}
-                            onChange={handleConfPasswordChange}
-                        />
-                        <ErrorMessage messages={errors}/>
+                            <InputField
+                                placeholder={"Votre mot de passe"}
+                                className={"appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"}
+                                label="Password:"
+                                type="password"
+                                value={password}
+                                onChange={handlePasswordChange}
+                            />
+                            <InputField
+                                placeholder={"Confirmer votre MDP"}
+                                className={"appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"}
+                                label=" Confirmer MDP:"
+                                type="password"
+                                value={confPassword}
+                                onChange={handleConfPasswordChange}
+                            />
+                            <ErrorMessage messages={errors}/>
 
-                        <Button
-                            className={"bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded justify-center"}
-                            value={"envoyer"} type="submit" innerHTML={"Envoyer"}></Button>
-                    </form>
+                            <Button
+                                className={"bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded justify-center"}
+                                value={"envoyer"} type="submit" innerHTML={"Envoyer"}></Button>
+                        </form>
+                    </div>
                 </div>
-            </div>
+            </main>
             <Footer/>
         </div>
     )

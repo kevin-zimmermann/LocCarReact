@@ -35,11 +35,10 @@ const Header = () => {
                             id="navbar-default"
                         >
                             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+
+
                                 {userStatusInfo ? (
                                     <nav className="text-white">
-                                        <Link to="/" className="mx-1">
-                                            <FontAwesomeIcon icon={faHouse} className="text-xl  text-white"/>
-                                        </Link>
                                         <Link to="/televersement" className="mx-1">
                                             <FontAwesomeIcon icon={faDownload} className="text-xl text-white"/>
                                         </Link>
@@ -56,10 +55,10 @@ const Header = () => {
                                             <FontAwesomeIcon icon={faHouse} className="text-xl text-white"/>
                                         </Link>
                                         <Link to="/Register" className="mx-1">
-                                            Register
+                                            Inscription
                                         </Link>
                                         <Link to="/Login" className="mx-1">
-                                            Login
+                                         Connexion
                                         </Link>
                                     </nav>
                                 )}

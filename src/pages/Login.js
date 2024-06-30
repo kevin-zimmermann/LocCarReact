@@ -29,6 +29,7 @@ const Login = () => {
         event.preventDefault();
 
         const formData = {'email': email, 'password': password};
+        console.log(formData)
 
 
         async function fetchData(){
@@ -60,11 +61,11 @@ const Login = () => {
     };
 
     return (
-        <div>
+        <div className="min-h-screen flex flex-col">
             <Header/>
-            <main>
+            <main className="flex-grow">
                 <h1 className={"font-bold text-center text-5xl mt-10"}>Connexion</h1>
-                <div className={"h-screen flex items-center justify-center"}>
+                <div className={"flex items-center justify-center"}>
                     <div className={"w-9/12 h-auto m-auto justify-center content-center"}>
                         <form onSubmit={handleSubmit}>
                             <InputField
